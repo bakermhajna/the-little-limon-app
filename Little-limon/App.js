@@ -5,6 +5,7 @@ import OnBoarding from "./screens/onbording/onbording";
 import backgroundImage from "./assets/images/Heroimage.png"
 import Login from "./screens/login/login";
 import { useFonts } from "expo-font";
+import Signup from "./screens/signup/Signup";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -19,7 +20,8 @@ export default function App() {
           style={{ flex: 1, }}
         >
           {/* <OnBoarding /> */}
-          <Login/>
+          {/* <Login/> */}
+          <Signup/>
         </ImageBackground>
     </View>
       </NativeBaseProvider>
