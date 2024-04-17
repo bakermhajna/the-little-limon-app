@@ -1,10 +1,19 @@
-import {Button} from "native-base"
+
 import { Text,StyleSheet,Dimensions } from "react-native"
+import { Button } from '@rneui/themed';
 const width = Dimensions.get("screen").width
 export default function MyButton(props) {
     return (
         <>
-            <Button borderRadius={50} style={styles.Button} {...props} >
+            <Button  buttonStyle={{
+                backgroundColor: '#4d5e58',
+                borderRadius: 5,
+                width:(width*70)/100,
+                marginVertical:"3%"
+              }} 
+              borderRadius={50}
+               style={styles.Button} 
+               {...props} >
                 <Text style={styles.text} >
                     {props.text}
                 </Text>

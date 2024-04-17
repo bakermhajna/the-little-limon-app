@@ -16,7 +16,7 @@ const InputField = (props) => {
     )
 }
 
-export default function Login({ props }) {
+export default function Signup({ props }) {
 
 
     return (<>
@@ -30,10 +30,10 @@ export default function Login({ props }) {
                 </Center>
             </Box>
             <Center>
-                <Text style={styles.signin} >Sign In</Text>
+                <Text style={styles.signin} >Sign up</Text>
                 <Center style={styles.box} marginY={"4%"} borderRadius={50} borderColor={"#495E57"} borderWidth={5}>
+                    <InputField text={"User name"} />
                     <InputField text={"Email"} />
-                    <InputField text={"Password"} />
                     <InputField text={"Password"} />
                     <Text style={styles.or}>OR</Text>
                     <Center>
@@ -43,7 +43,7 @@ export default function Login({ props }) {
                 </Center>
             </Center>
             <Center marginY={"4%"}>
-                <MyButton text={"Log In"} />
+                <MyButton text={"Sign up"} />
             </Center>
         </ScrollView>
 
