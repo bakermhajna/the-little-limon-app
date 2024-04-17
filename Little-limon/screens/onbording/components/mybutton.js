@@ -1,6 +1,6 @@
 import {Button} from "native-base"
-import { Text,StyleSheet } from "react-native"
-
+import { Text,StyleSheet,Dimensions } from "react-native"
+const width = Dimensions.get("screen").width
 export default function MyButton(props) {
     return (
         <>
@@ -19,7 +19,7 @@ const styles=StyleSheet.create({
 
     Button:{
         margin:20,
-        width:"80%",
+        width:(width*80)/100,
         backgroundColor:"#4d5e58"
     },
     text:{
