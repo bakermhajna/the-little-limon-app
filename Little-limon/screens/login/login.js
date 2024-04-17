@@ -1,14 +1,16 @@
 import { Center, Box, } from "native-base"
-import { Text, StyleSheet ,TextInput } from "react-native"
+import { Text, StyleSheet, TextInput, ScrollView, Dimensions } from "react-native"
+import { Input } from "@rneui/themed";
 import MyButton from "../onbording/components/mybutton";
 
 
+const width = Dimensions.get("screen").width
 const InputField = (props) => {
 
     return (
-        <Box p={"5%"} w={"80%"}>
+        <Box p={"5%"} w={(width * 80) / 100} >
             <Text style={styles.inputText} >{props.text}</Text>
-            <TextInput   style={styles.input} borderWidth={2}   />
+            <Input style={styles.input} borderWidth={2} />
         </Box>
     )
 }
@@ -17,27 +19,36 @@ export default function Login({ props }) {
 
 
     return (<>
-        <Box >
-            <Center mt={"10%"} >
+        <ScrollView >
+            <Box >
+                <Center mt={"10%"} >
 
-                <Text style={styles.TextL}>
-                    Little Limon
-                </Text>
-                <Text style={styles.Text}>
-                    chicago
-                </Text>
-            </Center>
-        </Box>
-        <Center  h={"70%"}>
-            <Text style={styles.inputText}>Sign In</Text>
-            <Box style={styles.box} borderRadius={50} borderColor={"#495E57"}  h={"80%"} w={"80%"}  borderWidth={5}>
-                <InputField text={"Email"} />
-                <InputField text={"Password"} />
+                    <Text style={styles.TextL}>
+                        Little Limon
+                    </Text>
+                </Center>
             </Box>
-        </Center>
-        <Center>
-            <MyButton text={"Log In"}/>
-        </Center>
+
+            <Center  >
+                <Text style={styles.signin} >Sign In</Text>
+                <Center style={styles.box} marginY={"4%"} borderRadius={50} borderColor={"#495E57"} borderWidth={5}>
+                    <InputField text={"Email"} />
+                    <InputField text={"Password"} />
+                    <Text style={styles.or}>OR</Text>
+                    <Center>
+                        <MyButton text={"Facebook"} />
+                        <MyButton text={"Google"}/>
+                    </Center>
+                </Center>
+
+            </Center>
+            <Center marginY={"4%"}>
+                <MyButton text={"Log In"} />
+            </Center>
+
+
+
+        </ScrollView>
 
 
     </>)
@@ -48,24 +59,40 @@ const styles = StyleSheet.create({
     Text: {
         fontSize: 30,
         margin: 5,
-        color: "#edefee"
+        color: "#edefee",
+        fontFamily: "Karla-Regular"
 
     },
     TextL: {
-        fontSize: 50,
+        fontSize: 70,
         margin: 5,
-        color: "#495e57"
+        color: "#495e57",
+        fontFamily: "SMarkaziText-Regular"
+    },
+    signin: {
+        color: "#EDEFEE",
+        fontSize: 30,
+        marginVertical: "4%",
+        fontFamily: "Karla-Regular"
     },
     inputText: {
         color: "#EDEFEE",
-        fontSize:30
+        fontSize: 20,
+        marginVertical: "4%",
+        fontFamily: "Karla-Regular"
     },
-    input:{
-        borderColor:"#495E57",
-        padding:"2%",
-        color:"#EDEFEE"
+    input: {
+        borderColor: "#495E57",
+        padding: "2%",
+        color: "#EDEFEE",
+        fontFamily: "Karla-Regular"
     },
-    box:{
-        backgroundColor: "#333333" ,
+    or:{
+        color:"#EDEFEE",
+        fontSize:20,
+        fontFamily:"Karla-Regular"
+    },
+    box: {
+        backgroundColor: "#333333",
     }
 })
