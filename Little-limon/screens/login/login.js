@@ -46,14 +46,12 @@ export default function Login({ props }) {
 const styles = StyleSheet.create({
 
     Text: {
-        fontFamily: "Karla-Regular",
         fontSize: 30,
         margin: 5,
         color: "#edefee"
 
     },
     TextL: {
-        fontFamily: "SMarkaziText-Regular",
         fontSize: 50,
         margin: 5,
         color: "#495e57"

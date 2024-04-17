@@ -25,6 +25,5 @@ const styles=StyleSheet.create({
     text:{
         color:"#edefee",
         fontSize:20,
-        fontFamily:"Karla-Regular",
     }
 })

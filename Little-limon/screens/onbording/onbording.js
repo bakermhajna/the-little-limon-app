@@ -1,7 +1,6 @@
 
 import { Center, Box, Image } from "native-base"
 import { Text, StyleSheet } from "react-native"
-import { useFonts } from "expo-font";
 import MyButton from "./components/mybutton";
 import logo from "./../../assets/images/img.png"
 
@@ -24,12 +23,7 @@ const Welcome = () => {
 }
 
 
-function OnBoarding() {
-    const [fontsLoaded] = useFonts({
-        "Karla-Regular": require("./../../assets/fonts/Karla-Regular.ttf"),
-        "SMarkaziText-Regular": require("./../../assets/fonts/MarkaziText-Regular.ttf"),
-    });
-
+export default function OnBoarding() {
     return (
 
         <>
@@ -70,6 +64,3 @@ const styles = StyleSheet.create({
         color: "#495e57"
     },
 })
-
-export default OnBoarding
-export { Welcome }
