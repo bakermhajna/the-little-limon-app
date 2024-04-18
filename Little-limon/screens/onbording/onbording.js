@@ -23,7 +23,7 @@ const Welcome = () => {
 }
 
 
-export default function OnBoarding() {
+export default function OnBoarding({navigation}) {
     return (
 
         <>
@@ -38,8 +38,8 @@ export default function OnBoarding() {
             </Center>
             <Welcome />
             <Center mt={"75%"}>
-                <MyButton text={"LogIn"} />
-                <MyButton text={"SignIn"} />
+                <MyButton onPress={()=>{navigation.navigate("login")}} text={"Log In"} />
+                <MyButton onPress={()=>{navigation.navigate("signup")}} text={"Sing up"} />
             </Center>
         </>
     )
