@@ -1,11 +1,12 @@
 import React from "react";
+import OnBoarding from "./screens/onbording/onbording";
+import Login from "./screens/login/login";
+import Signup from "./screens/signup/Signup";
+import Menu from "./screens/menu/menu";
 import { NativeBaseProvider } from "native-base";
 import { ImageBackground,View } from "react-native";
-import OnBoarding from "./screens/onbording/onbording";
 import backgroundImage from "./assets/images/Heroimage.png"
-import Login from "./screens/login/login";
 import { useFonts } from "expo-font";
-import Signup from "./screens/signup/Signup";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -14,15 +15,12 @@ export default function App() {
 });
   return (
     <NativeBaseProvider>
-        <View style={{flex:1}}>
-        <ImageBackground
-          source={backgroundImage}
-          style={{ flex: 1, }}
-        >
+        <View style={{ flex:1}}>
+        
           {/* <OnBoarding /> */}
           {/* <Login/> */}
-          <Signup/>
-        </ImageBackground>
+          {/* <Signup/> */}
+          <Menu/>
     </View>
       </NativeBaseProvider>
   );
