@@ -93,6 +93,7 @@ export default function Menu() {
             try {
                 await createTable()
                 let menuItems = await getMenuItems()
+                console.log(menuItems)
                 if (menuItems.length === 0) {
                     const menu = fetchData()
                     saveMenuItems(menu)
