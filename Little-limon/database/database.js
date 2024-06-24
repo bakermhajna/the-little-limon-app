@@ -29,7 +29,7 @@ export async function getMenuItems() {
 
 export function saveMenuItems(menuItems) {
   db.transaction((tx) => {
-    menuItems.menu.forEach((menuItem)=>{
+    menuItems.forEach((menuItem)=>{
       tx.executeSql(`insert into menuitems (uuid, title, price, category,pic) values (?, ?, ?, ?, ?)`,[
         menuItem.id,
         menuItem.title,

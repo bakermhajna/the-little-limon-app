@@ -149,6 +149,6 @@ function sections(data){
   return DATA
 }
 
-sections(menuitemjson.menu)
+console.log(sections(menuitemjson.menu))
 
 

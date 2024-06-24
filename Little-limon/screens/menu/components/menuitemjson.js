@@ -80,7 +80,7 @@ export const menuitemjson=
         "id": 9,
         "title": "Water",
         "price": "3",
-        "pic":"https://cdn.mafrservices.com/sys-master-root/hfc/ha0/52441041731614/395062_main.jpg?im=Resize=480",
+        "pic":"https://www.radnorhills.co.uk/app/uploads/2022/04/RAD_167.jpeg",
         "category": {
           "title": "Beverages"
         }

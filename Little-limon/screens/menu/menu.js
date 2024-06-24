@@ -91,16 +91,15 @@ export default function Menu() {
     useEffect(() => {
         const run = async () => {
             try {
-                // await createTable()
-                // let menuItems = await getMenuItems()
-                // console.log(menuItems)
-                // if (menuItems.length === 0) {
-                //     const menu = fetchData()
-                //     saveMenuItems(menu)
-                //     menuItems = menu
-                //}
-                const sectiondata = newsections(menuitemjson.menu)
-                console.log(sectiondata[0])
+                await createTable()
+                let menuItems = await getMenuItems()
+                if (menuItems.length === 0) {
+                    //const menu = fetchData()
+                    const menu =menuitemjson.menu
+                    saveMenuItems(menu)
+                    menuItems = await getMenuItems()
+                }
+                const sectiondata = newsections(menuItems)
                 setSectionData(sectiondata)
             } catch (error) {
                 console.log(error)
@@ -119,7 +118,7 @@ export default function Menu() {
                                 const newtsectionfilter = { ...sectionFilter, [item]: !(sectionFilter[item]) }
                                 setSectionFilter(newtsectionfilter)
                                 filterByQueryAndCategories(newtsectionfilter, searchinput).then(result => {
-                                    const data = getSectionListData(result)
+                                    const data = newsections(result)
                                     console.log(result)
                                     setSectionData(data)
                                 })
