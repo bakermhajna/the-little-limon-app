@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Pressable, Dimensions, SectionList,Image } from
 import { HStack, Box, Input, Center, } from 'native-base';
 import { FontAwesome } from '@expo/vector-icons';
 import { createTable, getMenuItems, saveMenuItems, filterByQueryAndCategories } from "./../../database/database";
-import { getSectionListData } from "./../../utils/utils";
+import { getSectionListData,newsections } from "./../../utils/utils";
 import { menuitemjson } from "./components/menuitemjson";
 
 const API_URL = 'https://raw.githubusercontent.com/Meta-Mobile-Developer-PC/Working-With-Data-API/main/menu-items-by-category.json';
@@ -20,7 +20,7 @@ const Item = ({ item }) => {
     return (<Center style={menuStyles.innerContainer}>
         <Text style={menuStyles.itemText}>{item.name}</Text>
         <Text style={menuStyles.itemText}>{item.price}</Text>
-        <Image  src={item.picture} width={20} height={20} />
+        <Image  source={{uri: item.pic}} style={{width: 50, height: 50}} />
     </Center>)
 };
 
@@ -91,15 +91,16 @@ export default function Menu() {
     useEffect(() => {
         const run = async () => {
             try {
-                await createTable()
-                let menuItems = await getMenuItems()
-                console.log(menuItems)
-                if (menuItems.length === 0) {
-                    const menu = fetchData()
-                    saveMenuItems(menu)
-                    menuItems = menu
-                }
-                const sectiondata = getSectionListData(menuitemjson.menu)
+                // await createTable()
+                // let menuItems = await getMenuItems()
+                // console.log(menuItems)
+                // if (menuItems.length === 0) {
+                //     const menu = fetchData()
+                //     saveMenuItems(menu)
+                //     menuItems = menu
+                //}
+                const sectiondata = newsections(menuitemjson.menu)
+                console.log(sectiondata[0])
                 setSectionData(sectiondata)
             } catch (error) {
                 console.log(error)
