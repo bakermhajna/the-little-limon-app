@@ -1,6 +1,7 @@
 
 
-export const menuitemjson=
+
+const menuitemjson=
 
 {
     "menu": [
@@ -80,7 +81,7 @@ export const menuitemjson=
         "id": 9,
         "title": "Water",
         "price": "3",
-        "pic":"https://www.radnorhills.co.uk/app/uploads/2022/04/RAD_167.jpeg",
+        "pic":"https://cdn.mafrservices.com/sys-master-root/hfc/ha0/52441041731614/395062_main.jpg?im=Resize=480",
         "category": {
           "title": "Beverages"
         }
@@ -114,3 +115,40 @@ export const menuitemjson=
       }
     ]
   }
+function sections(data){
+
+    let DATA=[]
+
+  data.forEach(element => {
+    const cat =element.category.title
+    const elementdata={
+        name:element.title,
+        price:element.price,
+        pic:element.pic
+    }
+
+    const t={
+        title:cat,
+        data:[elementdata]
+    }
+    if(DATA.length==0){
+        DATA.push(t)
+    }else{
+        let f=false
+        for(let i=0 ;i<DATA.length;i++){
+            f=false
+            if(DATA[i].title===cat){
+                DATA[i].data.push(elementdata)
+                break
+            }
+            f=true
+        }
+        if(f)DATA.push(t)
+    }
+  });
+  return DATA
+}
+
+console.log(sections(menuitemjson.menu))
+
+

@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Pressable, Dimensions, SectionList,Image } from
 import { HStack, Box, Input, Center, } from 'native-base';
 import { FontAwesome } from '@expo/vector-icons';
 import { createTable, getMenuItems, saveMenuItems, filterByQueryAndCategories } from "./../../database/database";
-import { getSectionListData } from "./../../utils/utils";
+import { getSectionListData,newsections } from "./../../utils/utils";
 import { menuitemjson } from "./components/menuitemjson";
 
 const API_URL = 'https://raw.githubusercontent.com/Meta-Mobile-Developer-PC/Working-With-Data-API/main/menu-items-by-category.json';
@@ -20,7 +20,7 @@ const Item = ({ item }) => {
     return (<Center style={menuStyles.innerContainer}>
         <Text style={menuStyles.itemText}>{item.name}</Text>
         <Text style={menuStyles.itemText}>{item.price}</Text>
-        <Image  src={item.picture} width={20} height={20} />
+        <Image  source={{uri: item.pic}} style={{width: 50, height: 50}} />
     </Center>)
 };
 
@@ -37,7 +37,7 @@ const Searchbar = ({ sectionfilter, sectiondatafunction, searchinput, setSearchI
                         const searchText = e.nativeEvent.text;
                         setSearchInput(searchText);
                         filterByQueryAndCategories(sectionfilter, searchText).then(result => {
-                            const data = getSectionListData(result);
+                            const data = newsections(result);
                             sectiondatafunction(data);
                         });
                     }}
@@ -94,11 +94,12 @@ export default function Menu() {
                 await createTable()
                 let menuItems = await getMenuItems()
                 if (menuItems.length === 0) {
-                    const menu = fetchData()
+                    //const menu = fetchData()
+                    const menu =menuitemjson.menu
                     saveMenuItems(menu)
-                    menuItems = menu
+                    menuItems = await getMenuItems()
                 }
-                const sectiondata = getSectionListData(menuitemjson.menu)
+                const sectiondata = newsections(menuItems)
                 setSectionData(sectiondata)
             } catch (error) {
                 console.log(error)
@@ -117,7 +118,7 @@ export default function Menu() {
                                 const newtsectionfilter = { ...sectionFilter, [item]: !(sectionFilter[item]) }
                                 setSectionFilter(newtsectionfilter)
                                 filterByQueryAndCategories(newtsectionfilter, searchinput).then(result => {
-                                    const data = getSectionListData(result)
+                                    const data = newsections(result)
                                     console.log(result)
                                     setSectionData(data)
                                 })
@@ -126,9 +127,10 @@ export default function Menu() {
                             >
                                 {sectionFilter[item]
                                     ?
-                                    <Mycenter backgroundColor={"#F4CE14"} item={item} />
-                                    :
                                     <Mycenter item={item} />
+                                    
+                                    :
+                                    <Mycenter backgroundColor={"#F4CE14"} item={item} />
                                 }
                             </Pressable>
                         )
