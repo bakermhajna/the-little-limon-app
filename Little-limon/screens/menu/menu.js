@@ -37,7 +37,7 @@ const Searchbar = ({ sectionfilter, sectiondatafunction, searchinput, setSearchI
                         const searchText = e.nativeEvent.text;
                         setSearchInput(searchText);
                         filterByQueryAndCategories(sectionfilter, searchText).then(result => {
-                            const data = getSectionListData(result);
+                            const data = newsections(result);
                             sectiondatafunction(data);
                         });
                     }}
@@ -127,9 +127,10 @@ export default function Menu() {
                             >
                                 {sectionFilter[item]
                                     ?
-                                    <Mycenter backgroundColor={"#F4CE14"} item={item} />
-                                    :
                                     <Mycenter item={item} />
+                                    
+                                    :
+                                    <Mycenter backgroundColor={"#F4CE14"} item={item} />
                                 }
                             </Pressable>
                         )
