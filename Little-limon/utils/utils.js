@@ -20,7 +20,6 @@ export function getSectionListData(data) {
 }
 
 export function newsections(data1){
-  console.log(data1)
   let DATA=[]
 
 data1.forEach(element => {
@@ -35,7 +34,6 @@ data1.forEach(element => {
       title:cat,
       data:[elementdata]
   }
-  console.log(t)
   if(DATA.length==0){
       DATA.push(t)
   }else{

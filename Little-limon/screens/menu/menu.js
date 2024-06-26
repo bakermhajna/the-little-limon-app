@@ -68,7 +68,7 @@ const Mycenter = ({ item, backgroundColor }) => {
     )
 }
 
-export default function Menu() {
+export default function Menu({navigation}) {
     const sections = ['Appetizers', 'Salads', 'Beverages'];
     const [searchinput, setSearchInput] = useState("")
     const [sectionDatavar, setSectionData] = useState([])
@@ -84,7 +84,15 @@ export default function Menu() {
         </Center>
     );
 
-    const renderItem = ({ item }) => <Item item={item} />
+    const renderItem = ({ item }) =>{
+        
+        return (
+            <Pressable onPress={() => {navigation.navigate("itempage",item)}} >
+                <Item item={item} />
+            
+            </Pressable>
+            )
+    } 
 
     const sep = () => <View style={menuStyles.sep} />
 
@@ -119,7 +127,6 @@ export default function Menu() {
                                 setSectionFilter(newtsectionfilter)
                                 filterByQueryAndCategories(newtsectionfilter, searchinput).then(result => {
                                     const data = newsections(result)
-                                    console.log(result)
                                     setSectionData(data)
                                 })
                             }}

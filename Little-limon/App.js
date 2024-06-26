@@ -3,12 +3,14 @@ import OnBoarding from "./screens/onbording/onbording";
 import Login from "./screens/login/login";
 import Signup from "./screens/signup/Signup";
 import Menu from "./screens/menu/menu";
+import ItemClick from "./screens/item/item";
 import { NativeBaseProvider } from "native-base";
 import { NavigationContainer ,DefaultTheme} from "@react-navigation/native";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { ImageBackground, View } from "react-native";
 import backgroundImage from "./assets/images/Heroimage.png"
 import { useFonts } from "expo-font";
+
 
 
 
@@ -40,6 +42,7 @@ function App1() {
               <Stack.Screen name="login" component={Login} />
               <Stack.Screen name="signup" component={Signup} />
               <Stack.Screen name="menu" component={Menu} />
+              <Stack.Screen name="itempage" component={ItemClick} />
             </Stack.Navigator>
           </ImageBackground>
         </View>
