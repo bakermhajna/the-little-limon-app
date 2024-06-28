@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Alert, Button, Image, Pressable, SafeAreaView, StyleSheet, Switch, Text, TextInput, View } from 'react-native'
 const logo = require("../../assets/images/img.png")
 const facebook = require("../../assets/images/facebooklogo.png")
+const google = require("../../assets/images/googlelogo.png")
 
 
 
@@ -46,7 +47,7 @@ export default function LoginForm({ navigation }) {
                 </Pressable>
                 <Pressable onPress={() => Alert.alert("Login Successfuly!", "see you in my instagram if you have questions : must_ait6")}>
 
-                    <Image source={tiktok} style={styles.icons} />
+                    <Image source={google} style={styles.icons} />
                 </Pressable>
             </View>
 
