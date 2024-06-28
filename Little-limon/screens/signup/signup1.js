@@ -2,8 +2,6 @@ import React, { useState } from 'react'
 import { Alert, Button, Image, Pressable, SafeAreaView, StyleSheet, Switch, Text, TextInput, View } from 'react-native'
 const logo = require("../../assets/images/img.png")
 const facebook = require("../../assets/images/facebooklogo.png")
-const linkedin = require("../../assets/images/linkeinlogo.png")
-const tiktok = require("../../assets/images/googlelogo.png")
 
 
 
