@@ -1,14 +1,19 @@
 import React from "react";
 import OnBoarding from "./screens/onbording/onbording";
 import Login from "./screens/login/login";
+import LoginForm from "./screens/login/login1";
 import Signup from "./screens/signup/Signup";
 import Menu from "./screens/menu/menu";
+import ItemClick from "./screens/item/item";
+import SignUpForm from "./screens/signup/signup1";
 import { NativeBaseProvider } from "native-base";
 import { NavigationContainer ,DefaultTheme} from "@react-navigation/native";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { ImageBackground, View } from "react-native";
 import backgroundImage from "./assets/images/Heroimage.png"
-import { useFonts } from "expo-font";
+import { useFonts } from "expo-font"
+
+
 
 
 
@@ -31,17 +36,14 @@ function App1() {
     <NativeBaseProvider>
       <NavigationContainer theme={navTheme}>
         <View style={{ flex: 1 }}>
-          <ImageBackground
-            source={backgroundImage}
-            style={{ flex: 1 }}
-          >
+          
             <Stack.Navigator screenOptions={{ cardStyle: {backgroundColor: 'transparent'}, headerShown: false }} initialRouteName="onboarding">
               <Stack.Screen name="onboarding" component={OnBoarding} />
-              <Stack.Screen name="login" component={Login} />
-              <Stack.Screen name="signup" component={Signup} />
+              <Stack.Screen name="login" component={LoginForm} />
+              <Stack.Screen name="signup" component={SignUpForm} />
               <Stack.Screen name="menu" component={Menu} />
+              <Stack.Screen name="itempage" component={ItemClick} />
             </Stack.Navigator>
-          </ImageBackground>
         </View>
       </NavigationContainer>
     </NativeBaseProvider>

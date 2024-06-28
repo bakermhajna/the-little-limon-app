@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Pressable, Dimensions, SectionList,Image } from
 import { HStack, Box, Input, Center, } from 'native-base';
 import { FontAwesome } from '@expo/vector-icons';
 import { createTable, getMenuItems, saveMenuItems, filterByQueryAndCategories } from "./../../database/database";
-import { getSectionListData,newsections } from "./../../utils/utils";
+import { getSectionListData,reshapingArray } from "./../../utils/utils";
 import { menuitemjson } from "./components/menuitemjson";
 
 const API_URL = 'https://raw.githubusercontent.com/Meta-Mobile-Developer-PC/Working-With-Data-API/main/menu-items-by-category.json';
@@ -37,7 +37,7 @@ const Searchbar = ({ sectionfilter, sectiondatafunction, searchinput, setSearchI
                         const searchText = e.nativeEvent.text;
                         setSearchInput(searchText);
                         filterByQueryAndCategories(sectionfilter, searchText).then(result => {
-                            const data = newsections(result);
+                            const data = reshapingArray(result);
                             sectiondatafunction(data);
                         });
                     }}
@@ -68,7 +68,7 @@ const Mycenter = ({ item, backgroundColor }) => {
     )
 }
 
-export default function Menu() {
+export default function Menu({navigation}) {
     const sections = ['Appetizers', 'Salads', 'Beverages'];
     const [searchinput, setSearchInput] = useState("")
     const [sectionDatavar, setSectionData] = useState([])
@@ -84,7 +84,15 @@ export default function Menu() {
         </Center>
     );
 
-    const renderItem = ({ item }) => <Item item={item} />
+    const renderItem = ({ item }) =>{
+        console.log(item)
+        return (
+            <Pressable onPress={() => {navigation.navigate("itempage",item)}} >
+                <Item item={item} />
+            
+            </Pressable>
+            )
+    } 
 
     const sep = () => <View style={menuStyles.sep} />
 
@@ -96,10 +104,11 @@ export default function Menu() {
                 if (menuItems.length === 0) {
                     //const menu = fetchData()
                     const menu =menuitemjson.menu
-                    saveMenuItems(menu)
+                    await saveMenuItems(menu)
                     menuItems = await getMenuItems()
                 }
-                const sectiondata = newsections(menuItems)
+                const sectiondata = reshapingArray(menuItems)
+                console.log(sectiondata)
                 setSectionData(sectiondata)
             } catch (error) {
                 console.log(error)
@@ -118,8 +127,7 @@ export default function Menu() {
                                 const newtsectionfilter = { ...sectionFilter, [item]: !(sectionFilter[item]) }
                                 setSectionFilter(newtsectionfilter)
                                 filterByQueryAndCategories(newtsectionfilter, searchinput).then(result => {
-                                    const data = newsections(result)
-                                    console.log(result)
+                                    const data = reshapingArray(result)
                                     setSectionData(data)
                                 })
                             }}

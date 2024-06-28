@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
         fontFamily: "Karla-Regular",
         fontSize: 30,
         margin: 5,
-        color: "#edefee"
+        color: "#495e57"
 
     },
     TextL: {
