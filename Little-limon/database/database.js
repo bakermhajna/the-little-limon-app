@@ -27,7 +27,7 @@ export async function getMenuItems() {
   });
 }
 
-export function saveMenuItems(menuItems) {
+export async function saveMenuItems(menuItems) {
   db.transaction((tx) => {
     menuItems.forEach((menuItem)=>{
       tx.executeSql(`insert into menuitems (uuid, title, price, category,pic) values (?, ?, ?, ?, ?)`,[

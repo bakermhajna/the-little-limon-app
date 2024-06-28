@@ -2,29 +2,31 @@
 
 export function reshapingArray(menuarray){
   let DATA=[]
-
   menuarray.forEach(element => {
-   
-    const itemOB={
-        title:element.category,
-        data:[{
-          name:element.title,
-          price:element.price,
-          pic:element.pic
-      }]
+    const cat =element.category
+    const elementdata={
+        name:element.title,
+        price:element.price,
+        pic:element.pic
+    }
+  
+    const t={
+        title:cat,
+        data:[elementdata]
     }
     if(DATA.length==0){
-        DATA.push(itemOB)
+        DATA.push(t)
     }else{
-        let flag=true
+        let f=false
         for(let i=0 ;i<DATA.length;i++){
-            if(DATA[i].title===category){
+            f=false
+            if(DATA[i].title===cat){
                 DATA[i].data.push(elementdata)
-                flag=false
                 break
             }
+            f=true
         }
-        if(flag)DATA.push(itemOB)
+        if(f)DATA.push(t)
     }
   });
   return DATA

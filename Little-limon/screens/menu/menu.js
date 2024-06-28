@@ -85,7 +85,7 @@ export default function Menu({navigation}) {
     );
 
     const renderItem = ({ item }) =>{
-        
+        console.log(item)
         return (
             <Pressable onPress={() => {navigation.navigate("itempage",item)}} >
                 <Item item={item} />
@@ -104,10 +104,11 @@ export default function Menu({navigation}) {
                 if (menuItems.length === 0) {
                     //const menu = fetchData()
                     const menu =menuitemjson.menu
-                    saveMenuItems(menu)
+                    await saveMenuItems(menu)
                     menuItems = await getMenuItems()
                 }
                 const sectiondata = reshapingArray(menuItems)
+                console.log(sectiondata)
                 setSectionData(sectiondata)
             } catch (error) {
                 console.log(error)
