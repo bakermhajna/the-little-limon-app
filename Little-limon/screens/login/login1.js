@@ -4,8 +4,6 @@ const logo = require("../../assets/images/img.png")
 const facebook = require("../../assets/images/facebooklogo.png")
 const google = require("../../assets/images/googlelogo.png")
 
-
-
 export default function LoginForm({ navigation }) {
     const [click, setClick] = useState(false);
     const { username, setUsername } = useState("");
@@ -32,31 +30,23 @@ export default function LoginForm({ navigation }) {
                     </Pressable>
                 </View>
             </View>
-
             <View style={styles.buttonView}>
                 <Pressable style={styles.button} onPress={() => navigation.navigate("menu")}>
                     <Text style={styles.buttonText}>LOGIN</Text>
                 </Pressable>
                 <Text style={styles.optionsText}>OR LOGIN WITH</Text>
             </View>
-
             <View style={styles.mediaIcons}>
                 <Pressable onPress={() => Alert.alert("Login Successfuly!", "see you in my instagram if you have questions : must_ait6")}>
-
                     <Image source={facebook} style={styles.icons} />
                 </Pressable>
                 <Pressable onPress={() => Alert.alert("Login Successfuly!", "see you in my instagram if you have questions : must_ait6")}>
-
                     <Image source={google} style={styles.icons} />
                 </Pressable>
             </View>
-
-
             <Pressable onPress={() => navigation.navigate("signup")}>
                 <Text style={styles.footerText}>Don't Have Account?<Text style={styles.signup}>  Sign Up</Text></Text>
             </Pressable>
-
-
         </SafeAreaView>
     )
 }
@@ -73,7 +63,7 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 30,
-        fontWeight: "bold",
+        fontFamily: "SMarkaziText-Regular",
         textTransform: "uppercase",
         textAlign: "center",
         paddingVertical: 40,
@@ -108,11 +98,13 @@ const styles = StyleSheet.create({
 
     },
     rememberText: {
-        fontSize: 13
+        fontSize: 15,
+        fontFamily: "SMarkaziText-Regular"
     },
     forgetText: {
-        fontSize: 11,
-        color: "#495e57"
+        fontSize: 14,
+        color: "#495e57",
+        fontFamily: "SMarkaziText-Regular"
     },
     button: {
         backgroundColor: "#495e57",
@@ -126,7 +118,7 @@ const styles = StyleSheet.create({
     buttonText: {
         color: "white",
         fontSize: 18,
-        fontWeight: "bold"
+        fontFamily: "SMarkaziText-Regular",
     },
     buttonView: {
         width: "100%",

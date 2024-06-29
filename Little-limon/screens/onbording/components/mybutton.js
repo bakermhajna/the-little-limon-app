@@ -33,6 +33,7 @@ const styles=StyleSheet.create({
     },
     text:{
         color:"#edefee",
-        fontSize:20,
+        fontSize:24,
+        fontFamily: "SMarkaziText-Regular"
     }
 })

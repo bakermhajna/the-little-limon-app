@@ -28,7 +28,7 @@ export default function SignUpForm() {
 
 
             <View style={styles.buttonView}>
-                <Pressable style={styles.button} onPress={() => Alert.alert("Login Successfuly!", "see you in my instagram if you have questions : must_ait6")}>
+                <Pressable  style={styles.button} onPress={() => Alert.alert("Login Successfuly!", "see you in my instagram if you have questions : must_ait6")}>
                     <Text style={styles.buttonText}>Sign Up</Text>
                 </Pressable>
                 <Text style={styles.optionsText}>OR SIGN UP WITH</Text>
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 30,
-        fontWeight: "bold",
+        fontFamily: "SMarkaziText-Regular",
         textTransform: "uppercase",
         textAlign: "center",
         paddingVertical: 40,
@@ -96,11 +96,13 @@ const styles = StyleSheet.create({
 
     },
     rememberText: {
-        fontSize: 13
+        fontSize: 15,
+        fontFamily: "SMarkaziText-Regular"
     },
     forgetText: {
-        fontSize: 11,
-        color: "#495e57"
+        fontSize: 14,
+        color: "#495e57",
+        fontFamily: "SMarkaziText-Regular"
     },
     button: {
         backgroundColor: "#495e57",
@@ -114,7 +116,7 @@ const styles = StyleSheet.create({
     buttonText: {
         color: "white",
         fontSize: 18,
-        fontWeight: "bold"
+        fontFamily: "SMarkaziText-Regular",
     },
     buttonView: {
         width: "100%",

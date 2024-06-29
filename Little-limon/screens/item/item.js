@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { View, Text, StyleSheet, Pressable, Dimensions, SectionList, Image } from "react-native";
-import { HStack, Stack,Button,Menu, AspectRatio,HamburgerIcon, Heading, Box, Input, MaterialIcons, Center, StatusBar, IconButton, Icon } from 'native-base';
+import { HStack, Stack, Button, Menu, AspectRatio, HamburgerIcon, Heading, Box, Input, MaterialIcons, Center, StatusBar, IconButton, Icon } from 'native-base';
 import { AntDesign } from '@expo/vector-icons';
 
 
@@ -17,7 +17,7 @@ function AppBar({ navigation, itemdata }) {
         </Pressable>
       </HStack>
 
-      <HStack>
+      <HStack alignItems="center">
         <AntDesign name="hearto" size={24} color="black" />
       </HStack>
     </HStack>
@@ -25,7 +25,7 @@ function AppBar({ navigation, itemdata }) {
 }
 
 const Example = ({ item }) => {
-  return <Box alignItems="center">
+  return <Box alignItems="center" marginTop={"10%"}>
     <Box maxW="80" rounded="lg" overflow="hidden" borderColor="coolGray.200" borderWidth="1" _dark={{
       borderColor: "coolGray.600",
       backgroundColor: "gray.700"
@@ -60,11 +60,16 @@ const Example = ({ item }) => {
           Bengaluru (also called Bangalore) is the center of India's high-tech
           industry. The city is also known for its parks and nightlife.
         </Text>
-        <HStack alignItems="center" space={4} justifyContent="space-between">
-          <HStack alignItems="center">
+        <HStack alignItems="center"  >
+          <HStack alignItems="center" >
             <Box alignItems="center">
-              <Button onPress={() => console.log("")}>Add To Cart</Button>
+              <Button >Add To Cart</Button>
             </Box>
+            <HStack alignItems="center" marginLeft={"50%"}>
+              <Pressable >
+              <AntDesign name="hearto" size={24} color="black" />
+              </Pressable>
+            </HStack>
           </HStack>
         </HStack>
       </Stack>
@@ -74,7 +79,6 @@ const Example = ({ item }) => {
 
 
 export default function ItemClick({ navigation, route }) {
-  console.log(route.params)
   return <>
     <AppBar navigation={navigation} itemdata={route.params} />
     <Example item={route.params} />
